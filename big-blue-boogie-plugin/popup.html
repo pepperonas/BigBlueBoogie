@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 320px;
+            margin: 0;
+            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(145deg, #2C2E3B, #1e2027);
+            color: #ffffff;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+        }
+        
+        .title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            color: #ffffff;
+        }
+        
+        .feature-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .feature-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .feature-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #b0b0b0;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        
+        .status-icon {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4CAF50;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-icon.inactive {
+            background: #757575;
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+        
+        .status-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: #ffffff;
+            flex: 1;
+        }
+        
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(145deg, #5CBF60, #4CAF50);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.25);
+            transform: translateY(-1px);
+        }
+        
+        .btn-danger {
+            background: linear-gradient(145deg, #f44336, #d32f2f);
+        }
+        
+        .btn-danger:hover {
+            background: linear-gradient(145deg, #ff5252, #f44336);
+            transform: translateY(-1px);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .info {
+            margin-top: 12px;
+            padding: 10px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 6px;
+            font-size: 11px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.4;
+            border-left: 3px solid #4CAF50;
+        }
+        
+        .footer {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            font-size: 11px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .btn-row {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .btn-row .btn {
+            flex: 1;
+        }
+        
+        .theme-preview {
+            display: flex;
+            gap: 4px;
+            margin-top: 6px;
+        }
+        
+        .theme-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .theme-dot.default { background: #2C2E3B; }
+        .theme-dot.light { background: #ffffff; }
+        .theme-dot.hacker { background: #00ff00; }
+        .theme-dot.typewriter { background: #f9f9f9; }
+        
+        .feature-icon {
+            font-size: 16px;
+            margin-right: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🎛️</div>
+        <h3 class="title">BBB Enhanced Control</h3>
+    </div>
+    
+    <div class="feature-sections">
+        <div class="feature-section">
+            <div class="feature-title">⚡ Master-Kontrolle</div>
+            <div class="status">
+                <div class="status-icon" id="masterStatusIcon"></div>
+                <div class="status-text" id="masterStatusText">Plugin aktiviert</div>
+            </div>
+            <div class="controls">
+                <button class="btn btn-primary" id="masterToggleBtn">
+                    <span>Plugin deaktivieren</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="feature-section">
+            <div class="feature-title">🤖 Auto-Dialog Handler</div>
+            <div class="status">
+                <div class="status-icon" id="dialogStatusIcon"></div>
+                <div class="status-text" id="dialogStatusText">Lade...</div>
+            </div>
+            <div class="controls">
+                <button class="btn btn-primary" id="dialogToggleBtn">
+                    <span>Toggle Dialog Handler</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="feature-section">
+            <div class="feature-title">🔊 Lautstärke-Kontrolle</div>
+            <div class="status">
+                <div class="status-icon" id="volumeStatusIcon"></div>
+                <div class="status-text" id="volumeStatusText">Interface verfügbar</div>
+            </div>
+            <div class="controls">
+                <button class="btn btn-secondary" id="openVolumeBtn">
+                    <span>Lautstärke-Interface öffnen</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="feature-section">
+            <div class="feature-title">🎨 Theme-Auswahl</div>
+            <div class="theme-preview">
+                <div class="theme-dot default" title="Standard"></div>
+                <div class="theme-dot light" title="Hell"></div>
+                <div class="theme-dot hacker" title="Hacker"></div>
+                <div class="theme-dot typewriter" title="Schreibmaschine"></div>
+            </div>
+            <div class="controls">
+                <button class="btn btn-secondary" id="openThemeBtn">
+                    <span>Theme-Interface öffnen</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="feature-section">
+            <div class="feature-title">⚙️ Allgemeine Kontrolle</div>
+            <div class="controls">
+                <div class="btn-row">
+                    <button class="btn btn-secondary" id="refreshBtn">
+                        <span>🔄 Neu laden</span>
+                    </button>
+                    <button class="btn btn-danger" id="resetBtn">
+                        <span>🗑️ Reset</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="info">
+        <strong>BBB Enhanced Control</strong> kombiniert Auto-Dialog-Handling, individuelle Lautstärke-Kontrolle und Theme-Switching in einer übersichtlichen, verschiebbaren Oberfläche.
+    </div>
+    
+    <div class="footer">
+        v2.0 - Alle Features integriert
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const masterStatusIcon = document.getElementById('masterStatusIcon');
+            const masterStatusText = document.getElementById('masterStatusText');
+            const dialogStatusIcon = document.getElementById('dialogStatusIcon');
+            const dialogStatusText = document.getElementById('dialogStatusText');
+            const volumeStatusIcon = document.getElementById('volumeStatusIcon');
+            const volumeStatusText = document.getElementById('volumeStatusText');
+            
+            const masterToggleBtn = document.getElementById('masterToggleBtn');
+            const dialogToggleBtn = document.getElementById('dialogToggleBtn');
+            const openVolumeBtn = document.getElementById('openVolumeBtn');
+            const openThemeBtn = document.getElementById('openThemeBtn');
+            const refreshBtn = document.getElementById('refreshBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            // Status aktualisieren
+            const updateMasterStatus = (enabled) => {
+                if (enabled) {
+                    masterStatusIcon.classList.remove('inactive');
+                    masterStatusText.textContent = 'Plugin aktiviert';
+                    masterToggleBtn.innerHTML = '<span>Plugin deaktivieren</span>';
+                    masterToggleBtn.className = 'btn btn-danger';
+                } else {
+                    masterStatusIcon.classList.add('inactive');
+                    masterStatusText.textContent = 'Plugin deaktiviert';
+                    masterToggleBtn.innerHTML = '<span>Plugin aktivieren</span>';
+                    masterToggleBtn.className = 'btn btn-primary';
+                }
+            };
+            
+            const updateDialogStatus = (active) => {
+                if (active) {
+                    dialogStatusIcon.classList.remove('inactive');
+                    dialogStatusText.textContent = 'Aktiv - Überwacht Dialoge';
+                } else {
+                    dialogStatusIcon.classList.add('inactive');
+                    dialogStatusText.textContent = 'Inaktiv';
+                }
+            };
+            
+            // Aktuellen Status abrufen
+            const getCurrentTab = (callback) => {
+                chrome.tabs.query({active: true, currentWindow: true}, callback);
+            };
+            
+            const sendMessage = (message, callback) => {
+                getCurrentTab((tabs) => {
+                    chrome.tabs.sendMessage(tabs[0].id, message, callback);
+                });
+            };
+            
+            // Initial status check
+            sendMessage({action: 'status'}, (response) => {
+                if (response) {
+                    updateMasterStatus(response.pluginEnabled !== false); // Default true if not set
+                    updateDialogStatus(response.active);
+                    volumeStatusText.textContent = 'Interface geladen';
+                } else {
+                    masterStatusText.textContent = 'Nicht auf BBB-Seite';
+                    dialogStatusText.textContent = 'Nicht auf BBB-Seite';
+                    volumeStatusText.textContent = 'Nicht verfügbar';
+                    masterToggleBtn.disabled = true;
+                    dialogToggleBtn.disabled = true;
+                    openVolumeBtn.disabled = true;
+                    openThemeBtn.disabled = true;
+                }
+            });
+            
+            // Master Toggle Button
+            masterToggleBtn.addEventListener('click', () => {
+                sendMessage({action: 'toggleMaster'}, (response) => {
+                    if (response) {
+                        updateMasterStatus(response.enabled);
+                    }
+                });
+            });
+            
+            // Dialog Toggle Button
+            dialogToggleBtn.addEventListener('click', () => {
+                sendMessage({action: 'toggle'}, (response) => {
+                    if (response) {
+                        updateDialogStatus(response.status === 'started');
+                    }
+                });
+            });
+            
+            // Volume Interface Button
+            openVolumeBtn.addEventListener('click', () => {
+                sendMessage({action: 'openVolume'}, (response) => {
+                    volumeStatusText.textContent = 'Interface geöffnet';
+                });
+                window.close();
+            });
+            
+            // Theme Interface Button
+            openThemeBtn.addEventListener('click', () => {
+                sendMessage({action: 'openTheme'}, (response) => {
+                    volumeStatusText.textContent = 'Theme-Auswahl geöffnet';
+                });
+                window.close();
+            });
+            
+            // Refresh Button
+            refreshBtn.addEventListener('click', () => {
+                getCurrentTab((tabs) => {
+                    chrome.tabs.reload(tabs[0].id);
+                    window.close();
+                });
+            });
+            
+            // Reset Button
+            resetBtn.addEventListener('click', () => {
+                if (confirm('Alle Einstellungen zurücksetzen und Extension neu laden?')) {
+                    sendMessage({action: 'reset'}, (response) => {
+                        setTimeout(() => {
+                            getCurrentTab((tabs) => {
+                                chrome.tabs.reload(tabs[0].id);
+                                window.close();
+                            });
+                        }, 500);
+                    });
+                }
+            });
+            
+            // Theme dots preview interaction
+            document.querySelectorAll('.theme-dot').forEach(dot => {
+                dot.addEventListener('click', () => {
+                    const theme = dot.classList[1]; // Get theme class
+                    sendMessage({action: 'setTheme', theme: theme}, () => {
+                        volumeStatusText.textContent = `${theme} Theme aktiviert`;
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

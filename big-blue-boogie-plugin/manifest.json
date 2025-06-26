@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "BigBlueBoogie",
+  "version": "2.1.0",
+  "description": "Dialog-Handler, Volume-Tweaks, Custom Themes\nAuthor: Martin Pfeffer",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.bigbluebutton.org/*",
+        "*://*.bigbluebutton.com/*",
+        "*://*/bigbluebutton/*",
+        "https://bbb.cc-labverse.de/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "BBB Enhanced Control"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

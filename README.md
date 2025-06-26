@@ -2,13 +2,35 @@
 
 ## Übersicht
 
-Dieses Repository enthält drei JavaScript-Userskripte, die die Funktionalität der BigBlueButton (BBB) Videokonferenzplattform erweitern. Die Skripte bieten automatisierte Dialogverarbeitung und erweiterte Lautstärkeregelungsfunktionen, um die Benutzererfahrung während Online-Meetings zu verbessern.
+Dieses Repository enthält eine Chrome-Extension und mehrere JavaScript-Userskripte, die die Funktionalität der BigBlueButton (BBB) Videokonferenzplattform erweitern. Die Tools bieten automatisierte Dialogverarbeitung, erweiterte Lautstärkeregelungsfunktionen und Theme-Anpassungen, um die Benutzererfahrung während Online-Meetings zu verbessern.
 
 ---
 
-## Dateien
+## Chrome Extension
 
-### 1. **bbb-auto-clicker-final.js**
+### **big-blue-boogie-plugin/**
+
+Eine Chrome-Extension, die alle Funktionen der einzelnen Skripte in einer benutzerfreundlichen Oberfläche vereint:
+
+**Features:**
+- ⚡ Master-Toggle zum Aktivieren/Deaktivieren des gesamten Plugins
+- 🤖 Auto-Dialog Handler mit 5-Sekunden Countdown und Audio-Feedback
+- 🔊 Individuelle Lautstärkeregelung für jeden Teilnehmer
+- 🎨 Theme-Switcher mit vier verschiedenen Designs
+- 📱 Tabbed Interface mit Drag & Drop Funktionalität
+
+**Installation:**
+1. Chrome Extensions öffnen: `chrome://extensions/`
+2. Developer Mode aktivieren
+3. Ordner `big-blue-boogie-plugin` per Drag & Drop hinzufügen
+
+Weitere Details finden Sie in der [Extension-README](big-blue-boogie-plugin/README.md).
+
+---
+
+## Standalone-Skripte
+
+### 1. **bbb-auto-clicker.js**
 
 **Zweck:**
 Erkennt und verarbeitet Dialogfelder in BigBlueButton automatisch, indem OK/Bestätigen-Buttons nach einem 10-Sekunden-Countdown geklickt werden. Bestätigt außerdem die Anwesenheit automatisch, sobald ein entsprechender Dialog erscheint.
@@ -24,14 +46,62 @@ Erkennt und verarbeitet Dialogfelder in BigBlueButton automatisch, indem OK/Best
 
 ```text
 1. Öffne die Browser-Entwicklerkonsole (F12 oder Rechtsklick → "Untersuchen" → "Konsole").
-2. Kopiere den gesamten Inhalt von bbb-auto-clicker-final.js.
+2. Kopiere den gesamten Inhalt von bbb-auto-clicker.js.
 3. Füge den Code in die Konsole ein und drücke Enter.
 4. Das Skript startet automatisch und zeigt die Status-UI an.
 ```
 
 ---
 
-### 2. **bbb-limit-user-vol-final.js**
+### 2. **bbb-theme-switcher.js**
+
+**Zweck:**
+Bietet verschiedene visuelle Themes für BigBlueButton-Meetings.
+
+**Funktionen:**
+
+* Vier verschiedene Themes: Standard, Hell, Hacker (Matrix-Style), Schreibmaschine
+* Verschiebbare Benutzeroberfläche mit Theme-Auswahl
+* Speichert die Theme-Auswahl automatisch
+* Sofortige Anwendung der Theme-Änderungen
+
+**Verwendung:**
+
+```text
+1. Öffne die Browser-Entwicklerkonsole (F12 oder Rechtsklick → "Untersuchen" → "Konsole").
+2. Kopiere den gesamten Inhalt von bbb-theme-switcher.js.
+3. Füge den Code in die Konsole ein und drücke Enter.
+4. Die Theme-Auswahl erscheint unten rechts auf der BBB-Seite.
+```
+
+---
+
+### 3. **bbb-volume-minimizable.js**
+
+**Zweck:**
+Bietet individuelle Lautstärkeregelung für jeden Benutzer in BBB-Meetings mit minimierbarer Oberfläche.
+
+**Funktionen:**
+
+* Verschiebbare und minimierbare Benutzeroberfläche
+* Individuelle Lautstärkeregler pro Benutzer
+* Voreinstellungsbuttons (50%, 75%, 100%)
+* Echtzeit-Sprecherekennung und -anzeige
+* Reset-Buttons für individuelle Lautstärken
+* Kompakte Ansicht im minimierten Zustand
+
+**Verwendung:**
+
+```text
+1. Öffne die Browser-Entwicklerkonsole (F12 oder Rechtsklick → "Untersuchen" → "Konsole").
+2. Kopiere den gesamten Inhalt von bbb-volume-minimizable.js.
+3. Füge den Code in die Konsole ein und drücke Enter.
+4. Die Benutzeroberfläche erscheint unten rechts auf der BBB-Seite.
+```
+
+---
+
+### 4. **bbb-limit-user-vol-final.js** *(veraltet)*
 
 **Zweck:**
 Ermöglicht die selektive Lautstärkebegrenzung für bestimmte Benutzer in BBB-Meetings.
@@ -49,30 +119,6 @@ Ermöglicht die selektive Lautstärkebegrenzung für bestimmte Benutzer in BBB-M
 ```text
 1. Öffne die Browser-Entwicklerkonsole (F12 oder Rechtsklick → "Untersuchen" → "Konsole").
 2. Kopiere den gesamten Inhalt von bbb-limit-user-vol-final.js.
-3. Füge den Code in die Konsole ein und drücke Enter.
-4. Die Benutzeroberfläche erscheint unten rechts auf der BBB-Seite.
-```
-
----
-
-### 3. **bbb-limit-each-user-vol-final.js**
-
-**Zweck:**
-Bietet individuelle Lautstärkeregelung für jeden Benutzer in BBB-Meetings.
-
-**Funktionen:**
-
-* Verschiebbare Benutzeroberfläche mit Hauptlautstärkeregelung
-* Individuelle Lautstärkeregler pro Benutzer
-* Voreinstellungsbuttons (50%, 75%, 100%)
-* Echtzeit-Sprecherekennung und -anzeige
-* Reset-Buttons für individuelle Lautstärken
-
-**Verwendung:**
-
-```text
-1. Öffne die Browser-Entwicklerkonsole (F12 oder Rechtsklick → "Untersuchen" → "Konsole").
-2. Kopiere den gesamten Inhalt von bbb-limit-each-user-vol-final.js.
 3. Füge den Code in die Konsole ein und drücke Enter.
 4. Die Benutzeroberfläche erscheint unten rechts auf der BBB-Seite.
 ```
