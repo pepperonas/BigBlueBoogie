@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "BigBlueBoogie",
   "version": "2.1.0",
-  "description": "Dialog-Handler, Volume-Tweaks, Custom Themes\nAuthor: Martin Pfeffer",
+  "description": "Dialog-Handler, Volume-Tweaks, Custom Themes. Author: Martin Pfeffer",
   "permissions": [
     "activeTab",
     "storage"
