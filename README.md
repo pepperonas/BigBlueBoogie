@@ -4,6 +4,8 @@
 
 Dieses Repository enthält eine Chrome-Extension und mehrere JavaScript-Userskripte, die die Funktionalität der BigBlueButton (BBB) Videokonferenzplattform erweitern. Die Tools bieten automatisierte Dialogverarbeitung, erweiterte Lautstärkeregelungsfunktionen und Theme-Anpassungen, um die Benutzererfahrung während Online-Meetings zu verbessern.
 
+![BigBlueButton Erweiterungen](bbb.png)
+
 ---
 
 ## Chrome Extension
